@@ -1,0 +1,26 @@
+#contract address
+0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9
+
+#compiling
+forge create SimpleStorage.sol
+
+#deploying scripts
+forge script script/DeploySimpleStorage.s.sol --rpc-url $SEPOLIA_RPC_URL --private-key $PRIVATE_KEY --broadcast
+
+//using most secure way
+forge script script/DeploySimpleStorage.s.sol --rpc-url $RPC_URL --account defaultKey --sender 0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266 --broadcast
+
+#adding new private key to "cast" from foundry
+
+cast wallet import [NAME OF ACCOUNT] --interactive
+//enter the private key
+//enter the password
+
+#list all the wallets 
+cast wallet list
+
+#making transactions
+cast send 0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266 "store(uint256)" 123 --rpc-url $RPC_URL --private-key $PRIVATE_KEY
+
+#convert value to decimal
+cast --to-base 0x0000000000000000000000000000000000000000000000000000000000000064 dec
